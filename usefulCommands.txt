@@ -1,0 +1,4 @@
+nano /etc/init.d/network/interfaces
+/etc/init.d/networking restart
+wpa_cli reconfigure
+nano /etc/wpa_supplicant/wpa_supplicant.conf
