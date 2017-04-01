@@ -56,23 +56,28 @@ count = COUNT
 points = [random_point()]
 
 while True:
-  clear_tails(points)
+  try:
+      clear_tails(points)
   
-  if count < 0:
-    count = COUNT
-    if len(points) < MAXBALLS:
-      points += [random_point()]
-    else:
-      p = points[MAXBALLS - 1]
-      clear_points(points)
-      points = [p]
+      if count < 0:
+        count = COUNT
+        if len(points) < MAXBALLS:
+          points += [random_point()]
+        else:
+          p = points[MAXBALLS - 1]
+          clear_points(points)
+          points = [p]
 
-  for point in points:
-    move(point)
-    boundaries(point)
+      for point in points:
+        move(point)
+        boundaries(point)
 
-  draw_points(points)
+      draw_points(points)
 
-  scrollphat.update()
-  time.sleep(DELAY)
-  count -= 1
+      scrollphat.update()
+      time.sleep(DELAY)
+      count -= 1
+
+  except KeyboardInterrupt:
+      scrollphat.clear()
+      sys.exit(-1)

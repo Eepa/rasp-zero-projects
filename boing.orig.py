@@ -39,26 +39,31 @@ count = COUNT
 points = [random_point()]
 
 while True:
-  for point in points:
-    scrollphat.set_pixel(point[4],point[5],0)
-  
-  if count < 0:
-    count = COUNT
-    if len(points) < MAXBALLS:
-      points += [random_point()]
-    else:
-      p = points[0]
+  try:
       for point in points:
-        scrollphat.set_pixel(point[0], point[1], 0)
-      points = [p]
+        scrollphat.set_pixel(point[4],point[5],0)
+  
+      if count < 0:
+        count = COUNT
+        if len(points) < MAXBALLS:
+          points += [random_point()]
+        else:
+          p = points[0]
+          for point in points:
+            scrollphat.set_pixel(point[0], point[1], 0)
+          points = [p]
 
-  for point in points:
-    move(point)
-    boundaries(point)
+      for point in points:
+        move(point)
+        boundaries(point)
 
-  for point in points:
-    scrollphat.set_pixel(point[0],point[1],1)
+      for point in points:
+        scrollphat.set_pixel(point[0],point[1],1)
 
-  scrollphat.update()
-  time.sleep(0.02)
-  count -= 1
+      scrollphat.update()
+      time.sleep(0.02)
+      count -= 1
+
+  except KeyboardInterrupt:
+      scrollphat.clear()
+      sys.exit(-1)
