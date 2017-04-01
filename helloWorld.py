@@ -5,10 +5,9 @@ import time
 
 import scrollphat
 
-
 scrollphat.set_brightness(2)
 
-message = 'NYT ON NUKKUMAAN MENON AIKA!!!!'
+message = 'HELLO POSSU WORLD!'
 
 scrollphat.set_rotate(True)
 scrollphat.write_string(message, 11)
@@ -16,7 +15,7 @@ scrollphat.write_string(message, 11)
 while True:
     try:
         scrollphat.scroll()
-        time.sleep(0.05)
+        time.sleep(0.3)
     except KeyboardInterrupt:
         scrollphat.clear()
         sys.exit(-1)
