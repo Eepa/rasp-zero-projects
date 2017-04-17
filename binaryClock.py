@@ -5,6 +5,8 @@ import time
 import scrollphat
 from smallNumbersFont import smallNumbersFont
 
+scrollphat.clear()
+
 timeImages = {
     "night": [0, 17, 27, 14, 0],
     "day": [21, 14, 31, 14, 21],
